@@ -92,7 +92,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         app:tabTextColor="#000"
-                        app:tabSelectedTextColor="#FB8E03">
+                        app:tabSelectedTextColor="@color/colorPrimaryDark">
                     </com.google.android.material.tabs.TabLayout>
                     <androidx.viewpager.widget.ViewPager
                         android:id="@+id/vPager"

@@ -1,7 +1,9 @@
 package com.dev.projectta.home;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -15,7 +17,8 @@ import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
-
+    private boolean doubleBack;
+    private Toast backToast;
 
     @BindView(R.id.profile_image)
     CircleImageView profileImage;
@@ -39,5 +42,26 @@ public class MainActivity extends AppCompatActivity {
         pagerOrderAdapter.addFrag(new StatusFrag(), "Status");
         pagerOrderAdapter.addFrag(new OthersFrag(), "Others");
         vPager.setAdapter(pagerOrderAdapter);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBack) {
+            backToast.cancel();
+            super.onBackPressed();
+            moveTaskToBack(true);
+        } else {
+            backToast = Toast.makeText(this, "Press back againt to exit ", Toast.LENGTH_SHORT);
+            backToast.show();
+            doubleBack = true;
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    doubleBack = false;
+                }
+            }, 2000);
+        }
+
     }
 }
