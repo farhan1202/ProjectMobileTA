@@ -16,6 +16,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:elevation="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -83,7 +84,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <LinearLayout
-                    android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
@@ -91,7 +91,6 @@
                         android:id="@+id/tablayout"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:background="#fff"
                         app:tabTextColor="#000"
                         app:tabSelectedTextColor="#FB8E03">
                     </com.google.android.material.tabs.TabLayout>
