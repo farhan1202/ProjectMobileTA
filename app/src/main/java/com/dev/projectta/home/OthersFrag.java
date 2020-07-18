@@ -1,5 +1,7 @@
 package com.dev.projectta.home;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -41,13 +43,36 @@ public class OthersFrag extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_others, container, false);
         ButterKnife.bind(this, view);
         prefManager = new PrefManager(getContext());
+        aboutUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view.getContext(), AboutUsActivity.class);
+                startActivity(intent);
+            }
+        });
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), LoginActivity.class);
-                startActivity(intent);
-                getActivity().finish();
-                prefManager.removeSession();
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                builder.setMessage("Are you sure?")
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        }).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(view.getContext(), LoginActivity.class);
+                        startActivity(intent);
+                        getActivity().finish();
+                        prefManager.removeSession();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+
             }
         });
         return view;
