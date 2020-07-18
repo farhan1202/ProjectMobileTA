@@ -65,14 +65,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
-                        android:text="Farhan Hafifi"
+                        android:text="-"
                         android:textSize="18dp"
                         android:textStyle="bold" />
                     <TextView
                         android:id="@+id/userNoBP"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1701082012"
+                        android:text="-"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>

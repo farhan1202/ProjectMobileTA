@@ -13,4 +13,17 @@ public interface ApiInterface {
     Call<ResponseBody> registerUser(@Field("nobp") String nobp,
                                     @Field("password") String password,
                                     @Field("nama") String name);
+
+    @FormUrlEncoded
+    @POST("login.php")
+    Call<ResponseBody> loginUser(@Field("nobp") String nobp,
+                                 @Field("password") String password);
+
+    @FormUrlEncoded
+    @POST("userData.php")
+    Call<ResponseBody> userData(@Field("nobp") String nobp);
+
+    @FormUrlEncoded
+    @POST("userStatus.php")
+    Call<ResponseBody> getUserStatus(@Field("nobp") String nobp);
 }

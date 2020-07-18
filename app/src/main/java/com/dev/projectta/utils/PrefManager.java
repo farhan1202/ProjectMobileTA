@@ -10,6 +10,7 @@ public class PrefManager {
 
     private static final String PREF_NAME = "Pref_SetUp";
     private static final String SESSION_KEY = "SESSION_USER";
+    public static final String SP_ID = "spID";
 
     public PrefManager(Context context){
         this.mContext = context;
@@ -30,5 +31,14 @@ public class PrefManager {
     public void removeSession(){
         editor.putBoolean(SESSION_KEY, false);
         editor.commit();
+    }
+
+    public void spInt(String key, String value){
+        editor.putString(key, value);
+        editor.commit();
+    }
+
+    public String getId(){
+        return preferences.getString(SP_ID, "1701082026");
     }
 }
