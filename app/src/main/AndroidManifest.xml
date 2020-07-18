@@ -9,9 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".home.ResultActivity"></activity>
-        <activity android:name=".home.CandidateActivity" />
-        <activity android:name=".home.VoteActivity" />
+        <activity
+            android:name=".home.ResultActivity"
+            android:parentActivityName=".home.MainActivity" />
+        <activity
+            android:name=".home.CandidateActivity"
+            android:parentActivityName=".home.MainActivity" />
+        <activity
+            android:name=".home.VoteActivity"
+            android:parentActivityName=".home.MainActivity" />
         <activity
             android:name=".home.AboutUsActivity"
             android:parentActivityName=".home.MainActivity" />
