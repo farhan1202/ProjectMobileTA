@@ -14,5 +14,20 @@
         android:id="@+id/recyclerVote"
         android:layout_below="@+id/toolbarVote"
         android:layout_width="match_parent"
+        android:layout_above="@id/layoutSubmit"
         android:layout_height="match_parent"/>
+    <RelativeLayout
+        android:id="@+id/layoutSubmit"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+        <Button
+            android:id="@+id/btnVote"
+            android:background="@drawable/button_rounded2"
+            android:text="Vote"
+            android:textColor="@android:color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
 </RelativeLayout>
