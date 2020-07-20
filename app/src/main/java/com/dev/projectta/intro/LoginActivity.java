@@ -86,6 +86,7 @@ public class LoginActivity extends AppCompatActivity {
                             loadingDialog.dismissLoadingDialog();
                             prefManager.saveSession();
                             prefManager.spInt(PrefManager.SP_ID, jsonObject1.getString("nobp"));
+                            prefManager.spToken(PrefManager.SP_TOKEN, jsonObject1.getString("token"));
                             finish();
                         }else{
                             Toast.makeText(LoginActivity.this, jsonObject.getString("MESSAGE")+"", Toast.LENGTH_SHORT).show();

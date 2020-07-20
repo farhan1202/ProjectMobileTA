@@ -11,6 +11,7 @@ public class PrefManager {
     private static final String PREF_NAME = "Pref_SetUp";
     private static final String SESSION_KEY = "SESSION_USER";
     public static final String SP_ID = "spID";
+    public static final String SP_TOKEN = "spTOKEN";
 
     public PrefManager(Context context){
         this.mContext = context;
@@ -39,6 +40,15 @@ public class PrefManager {
     }
 
     public String getId(){
-        return preferences.getString(SP_ID, "1701082026");
+        return preferences.getString(SP_ID, "");
+    }
+
+    public void spToken(String key, String token){
+        editor.putString(key, token);
+        editor.commit();
+    }
+
+    public  String getToken(){
+        return preferences.getString(SP_TOKEN, "");
     }
 }

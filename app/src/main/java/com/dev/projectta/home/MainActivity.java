@@ -1,5 +1,9 @@
 package com.dev.projectta.home;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
@@ -10,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.dev.projectta.R;
 import com.dev.projectta.home.adapter.PagerOrderAdapter;
+import com.dev.projectta.intro.LoginActivity;
 import com.dev.projectta.utils.LoadingDialog;
 import com.dev.projectta.utils.PrefManager;
 import com.dev.projectta.utils.apihelper.ApiInterface;
@@ -44,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.vPager)
     ViewPager vPager;
 
+    Context context;
+
     LoadingDialog loadingDialog;
     ApiInterface apiInterface;
     PrefManager prefManager;
@@ -55,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         apiInterface = UtilsApi.getApiService();
         prefManager = new PrefManager(this);
         loadingDialog = new LoadingDialog(this);
+        context = this;
         fetchDataProfile();
 
         ButterKnife.bind(this);
@@ -68,26 +76,40 @@ public class MainActivity extends AppCompatActivity {
 
     private void fetchDataProfile() {
         loadingDialog.startLoadingDialog();
-        apiInterface.userData(prefManager.getId()).enqueue(new Callback<ResponseBody>() {
+        apiInterface.userData(prefManager.getId(), prefManager.getToken()).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if (response.isSuccessful()){
+                if (response.isSuccessful()) {
                     try {
                         JSONObject jsonObject = new JSONObject(response.body().string());
-                        if (jsonObject.getString("STATUS").equals("200")){
+                        if (jsonObject.getString("STATUS").equals("200")) {
                             JSONObject jsonObject1 = new JSONObject(jsonObject.getString("DATA"));
                             userName.setText(jsonObject1.getString("nama"));
                             userNoBP.setText(jsonObject1.getString("nobp"));
                             loadingDialog.dismissLoadingDialog();
-                        }else{
+                        } else {
                             loadingDialog.dismissLoadingDialog();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                            builder.setMessage("Token Expired")
+                                    .setPositiveButton("Oke", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(context  , LoginActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                    prefManager.removeSession();
+                                }
+                            });
+                            AlertDialog alertDialog = builder.create();
+                            alertDialog.show();
+
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                }else{
+                } else {
                     loadingDialog.dismissLoadingDialog();
                 }
             }

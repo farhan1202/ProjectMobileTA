@@ -86,7 +86,7 @@ public class DashboardFrag extends Fragment {
 
     private void cekStatus() {
         loadingDialog.startLoadingDialog();
-        apiInterface.getUserStatus(prefManager.getId()).enqueue(new Callback<ResponseBody>() {
+        apiInterface.getUserStatus(prefManager.getId(), prefManager.getToken()).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.isSuccessful()){

@@ -22,11 +22,13 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("userData.php")
-    Call<ResponseBody> userData(@Field("nobp") String nobp);
+    Call<ResponseBody> userData(@Field("nobp") String nobp,
+                                @Field("token") String token);
 
     @FormUrlEncoded
     @POST("userStatus.php")
-    Call<ResponseBody> getUserStatus(@Field("nobp") String nobp);
+    Call<ResponseBody> getUserStatus(@Field("nobp") String nobp,
+                                     @Field("token") String token);
 
     //candidate
     @GET("getAllCandidate.php")
@@ -36,7 +38,8 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("addVote.php")
     Call<ResponseBody> vote(@Field("nobp_voter") String nobp_voter,
-                            @Field("nobp_candidate") String nobp_candidate);
+                            @Field("nobp_candidate") String nobp_candidate,
+                            @Field("token") String token);
 
     //result
     @GET("getResultVote.php")

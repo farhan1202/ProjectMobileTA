@@ -143,7 +143,7 @@ public class VoteActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 loadingDialog.startLoadingDialog();
-                apiInterface.vote(prefManager.getId(), nobp_candidate + "").enqueue(new Callback<ResponseBody>() {
+                apiInterface.vote(prefManager.getId(), nobp_candidate + "", prefManager.getToken()).enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         if (response.isSuccessful()) {

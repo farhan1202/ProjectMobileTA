@@ -64,7 +64,7 @@ public class StatusFrag extends Fragment {
 
     private void fetchDataStatus() {
         loadingDialog.startLoadingDialog();
-        apiInterface.getUserStatus(prefManager.getId()).enqueue(new Callback<ResponseBody>() {
+        apiInterface.getUserStatus(prefManager.getId(), prefManager.getToken()).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.isSuccessful()){
