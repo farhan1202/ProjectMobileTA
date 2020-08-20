@@ -11,9 +11,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.dev.projectta.R;
 import com.dev.projectta.home.interfaces.VoteInterface;
 import com.dev.projectta.home.model.Candidate;
+import com.dev.projectta.utils.apihelper.UtilsApi;
 
 import java.util.List;
 
@@ -54,6 +56,12 @@ public class AdapterVote extends RecyclerView.Adapter<AdapterVote.viewHolder> {
                 voteInterface.onItemClick(Integer.parseInt(dataBeanList.get(position).getNobp_candidate()));
             }
         });
+
+        Glide
+                .with(context)
+                .load(UtilsApi.BASE_URL1+dataBeanList.get(position).getProfile_image())
+                .centerCrop()
+                .into(holder.voteImage);
 
         if (position == 0 && lastSelectedPosition == -1){
             holder.vote.setChecked(true);

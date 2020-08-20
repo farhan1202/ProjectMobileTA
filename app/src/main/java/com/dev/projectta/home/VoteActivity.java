@@ -67,6 +67,7 @@ public class VoteActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         setSupportActionBar(toolbarVote);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Vote");
         context = this;
         apiInterface = UtilsApi.getApiService();
         prefManager = new PrefManager(context);

@@ -10,6 +10,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white" />
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:layout_below="@id/toolbarCandidate"
+        android:id="@+id/shimmer"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical"
+        app:duration="800"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include layout="@layout/data_placeholder_layout" />
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerCandidate"
         android:layout_below="@+id/toolbarCandidate"

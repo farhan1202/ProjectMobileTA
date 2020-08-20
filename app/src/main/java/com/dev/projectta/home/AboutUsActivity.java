@@ -23,6 +23,7 @@ public class AboutUsActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         setSupportActionBar(toolbarAboutUs);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Contact Us");
     }
 
     @Override

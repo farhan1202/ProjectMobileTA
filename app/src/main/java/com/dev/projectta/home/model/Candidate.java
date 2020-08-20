@@ -7,7 +7,7 @@ public class Candidate {
     /**
      * status : 200
      * message : Success Fetch Data
-     * data : [{"nobp_candidate":"1701081000","nama":"Kevin Tanes","jurusan":"Teknik Sipil","keterangan":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur nostrum odio laborum laboriosam iste. Assumenda cupiditate unde, totam placeat nobis dolorum! Autem ratione quia tempora. Aspernatur nemo velit ut ullam."},{"nobp_candidate":"1701081001","nama":"Muhammad Lutfi","jurusan":"Teknik Electro","keterangan":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur nostrum odio laborum laboriosam iste. Assumenda cupiditate unde, totam placeat nobis dolorum! Autem ratione quia tempora. Aspernatur nemo velit ut ullam."},{"nobp_candidate":"1701081002","nama":"Jefri ","jurusan":"Teknik Electro","keterangan":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur nostrum odio laborum laboriosam iste. Assumenda cupiditate unde, totam placeat nobis dolorum! Autem ratione quia tempora. Aspernatur nemo velit ut ullam."}]
+     * data : [{"id":"24","nobp_candidate":"1701081001","nama":"Hidayatul Fadhilah","jurusan":"Teknik Komputer","keterangan":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur nostrum odio laborum laboriosam iste. Assumenda cupiditate unde, totam placeat nobis dolorum! Autem ratione quia tempora. Aspernatur nemo velit ut ullam.","profile_image":"image/nama1.jpg"},{"id":"25","nobp_candidate":"1701081002","nama":"Rahmat Afif","jurusan":"Teknik Listrik","keterangan":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur nostrum odio laborum laboriosam iste. Assumenda cupiditate unde, totam placeat nobis dolorum! Autem ratione quia tempora. Aspernatur nemo velit ut ullam.","profile_image":"image/person2.jpg"}]
      */
 
     private String status;
@@ -40,16 +40,28 @@ public class Candidate {
 
     public static class DataBean {
         /**
-         * nobp_candidate : 1701081000
-         * nama : Kevin Tanes
-         * jurusan : Teknik Sipil
+         * id : 24
+         * nobp_candidate : 1701081001
+         * nama : Hidayatul Fadhilah
+         * jurusan : Teknik Komputer
          * keterangan : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur nostrum odio laborum laboriosam iste. Assumenda cupiditate unde, totam placeat nobis dolorum! Autem ratione quia tempora. Aspernatur nemo velit ut ullam.
+         * profile_image : image/nama1.jpg
          */
 
+        private String id;
         private String nobp_candidate;
         private String nama;
         private String jurusan;
         private String keterangan;
+        private String profile_image;
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
 
         public String getNobp_candidate() {
             return nobp_candidate;
@@ -81,6 +93,14 @@ public class Candidate {
 
         public void setKeterangan(String keterangan) {
             this.keterangan = keterangan;
+        }
+
+        public String getProfile_image() {
+            return profile_image;
+        }
+
+        public void setProfile_image(String profile_image) {
+            this.profile_image = profile_image;
         }
     }
 }

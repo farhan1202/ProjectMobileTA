@@ -1,10 +1,12 @@
 package com.dev.projectta.home;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,6 +45,8 @@ public class StatusFrag extends Fragment {
     ApiInterface apiInterface;
     PrefManager prefManager;
     LoadingDialog loadingDialog;
+    @BindView(R.id.btnRefesh)
+    Button btnRefesh;
 
     public StatusFrag() {
         // Required empty public constructor
@@ -58,6 +62,21 @@ public class StatusFrag extends Fragment {
         apiInterface = UtilsApi.getApiService();
         prefManager = new PrefManager(view.getContext());
         loadingDialog = new LoadingDialog(view.getContext());
+
+        btnRefesh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                fetchDataStatus();
+                Intent intent = getActivity().getIntent();
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK
+                        | Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                getActivity().overridePendingTransition(0, 0);
+                getActivity().finish();
+
+                getActivity().overridePendingTransition(0, 0);
+                startActivity(intent);
+            }
+        });
         fetchDataStatus();
         return view;
     }
@@ -67,34 +86,34 @@ public class StatusFrag extends Fragment {
         apiInterface.getUserStatus(prefManager.getId(), prefManager.getToken()).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if (response.isSuccessful()){
+                if (response.isSuccessful()) {
                     try {
                         JSONObject jsonObject = new JSONObject(response.body().string());
-                        if (jsonObject.getString("STATUS").equals("200")){
+                        if (jsonObject.getString("STATUS").equals("200")) {
                             loadingDialog.dismissLoadingDialog();
                             JSONObject jsonObject1 = new JSONObject(jsonObject.getString("DATA"));
-                            if (jsonObject1.getString("finger").equals("0")){
+                            if (jsonObject1.getString("finger").equals("0")) {
                                 status1.setText("Not Verified");
                                 status1.setTextColor(Color.parseColor("#ffcc0000"));
-                            }else{
+                            } else {
                                 status1.setText("Verified");
                                 status1.setTextColor(Color.parseColor("#ff99cc00"));
                             }
-                            if (jsonObject1.getString("rfid").equals("0")){
+                            if (jsonObject1.getString("rfid").equals("0")) {
                                 status2.setText("Not Verified");
                                 status2.setTextColor(Color.parseColor("#ffcc0000"));
-                            }else{
+                            } else {
                                 status2.setText("Verified");
                                 status2.setTextColor(Color.parseColor("#ff99cc00"));
                             }
-                            if (jsonObject1.getString("vote").equals("0")){
+                            if (jsonObject1.getString("vote").equals("0")) {
                                 status3.setText("Not Voted Yet");
                                 status3.setTextColor(Color.parseColor("#ffcc0000"));
-                            }else{
+                            } else {
                                 status3.setText("Voted");
                                 status3.setTextColor(Color.parseColor("#ff99cc00"));
                             }
-                        }else{
+                        } else {
                             loadingDialog.dismissLoadingDialog();
                         }
                     } catch (JSONException e) {
@@ -102,7 +121,7 @@ public class StatusFrag extends Fragment {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                }else{
+                } else {
                     Toast.makeText(getContext(), "Terjadi kesalahan", Toast.LENGTH_SHORT).show();
                     loadingDialog.dismissLoadingDialog();
                 }

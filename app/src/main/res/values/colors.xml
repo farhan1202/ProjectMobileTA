@@ -6,4 +6,6 @@
 
     <color name="colorCard">#9EC7C1C1</color>
     <color name="colorView">#3EC0BEBE</color>
+
+    <color name="backgrounds">#dddddd</color>
 </resources>
