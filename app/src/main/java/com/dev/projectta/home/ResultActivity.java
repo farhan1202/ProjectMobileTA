@@ -21,6 +21,7 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.github.mikephil.charting.utils.ViewPortHandler;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -126,6 +127,11 @@ public class ResultActivity extends AppCompatActivity {
                             bardataset.setColors(ColorTemplate.COLORFUL_COLORS);
                             barChart.getAxisLeft().setAxisMinValue(0f);
                             barChart.getAxisRight().setAxisMinValue(0f);
+
+                            barChart.getAxisLeft().setDrawGridLines(false);
+                            barChart.getXAxis().setDrawGridLines(false);
+                            barChart.getAxisRight().setDrawGridLines(false);
+
                             BarData data = new BarData(labels, bardataset);
                             barChart.setData(data); // set the data and list of labels into chart
                             barChart.setDescription("E-voting Result");  // set the description
