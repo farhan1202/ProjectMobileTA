@@ -24,6 +24,7 @@ import butterknife.ButterKnife;
 
 public class AdapterVote extends RecyclerView.Adapter<AdapterVote.viewHolder> {
 
+
     private Context context;
     private List<Candidate.DataBean> dataBeanList;
     private VoteInterface voteInterface;
@@ -47,6 +48,7 @@ public class AdapterVote extends RecyclerView.Adapter<AdapterVote.viewHolder> {
     @Override
     public void onBindViewHolder(@NonNull final viewHolder holder, final int position) {
         holder.voteName.setText(dataBeanList.get(position).getNama());
+        holder.voteNoBP.setText(dataBeanList.get(position).getNobp_candidate());
         holder.vote.setChecked(lastSelectedPosition == position);
         holder.vote.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,11 +61,11 @@ public class AdapterVote extends RecyclerView.Adapter<AdapterVote.viewHolder> {
 
         Glide
                 .with(context)
-                .load(UtilsApi.BASE_URL1+dataBeanList.get(position).getProfile_image())
+                .load(UtilsApi.BASE_URL1 + dataBeanList.get(position).getProfile_image())
                 .centerCrop()
                 .into(holder.voteImage);
 
-        if (position == 0 && lastSelectedPosition == -1){
+        if (position == 0 && lastSelectedPosition == -1) {
             holder.vote.setChecked(true);
             voteInterface.onItemClick(position);
         }
@@ -82,7 +84,8 @@ public class AdapterVote extends RecyclerView.Adapter<AdapterVote.viewHolder> {
         TextView voteName;
         @BindView(R.id.vote)
         CheckBox vote;
-
+        @BindView(R.id.voteNoBP)
+        TextView voteNoBP;
         public viewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

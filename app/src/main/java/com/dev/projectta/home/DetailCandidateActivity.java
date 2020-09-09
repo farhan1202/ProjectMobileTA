@@ -37,8 +37,7 @@ public class DetailCandidateActivity extends AppCompatActivity {
 
     @BindView(R.id.toolbarDetailCandidate)
     Toolbar toolbarDetailCandidate;
-    @BindView(R.id.shimmer)
-    ShimmerFrameLayout shimmer;
+
     @BindView(R.id.candidateDetailImg)
     ImageView candidateImg;
     @BindView(R.id.candidateDetailName)
@@ -49,8 +48,6 @@ public class DetailCandidateActivity extends AppCompatActivity {
     TextView candidateJurusan;
     @BindView(R.id.candidateDetailKeterangan)
     TextView candidateKeterangan;
-    @BindView(R.id.cardDetailCandidate)
-    CardView cardDetailCandidate;
 
     Context context;
     ApiInterface apiInterface;
@@ -64,7 +61,7 @@ public class DetailCandidateActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         setSupportActionBar(toolbarDetailCandidate);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Detail Candidate");
+        getSupportActionBar().setTitle("");
 
         context = this;
         apiInterface = UtilsApi.getApiService();
@@ -88,9 +85,7 @@ public class DetailCandidateActivity extends AppCompatActivity {
                         JSONObject jsonObject1 = new JSONObject(response.body().string());
                         if (jsonObject1.getString("STATUS").equals("200")){
                             JSONObject jsonObject = jsonObject1.getJSONObject("DATA");
-                            shimmer.stopShimmerAnimation();
-                            shimmer.setVisibility(View.GONE);
-                            cardDetailCandidate.setVisibility(View.VISIBLE);
+
                             loadingDialog.dismissLoadingDialog();
 
                             candidateBP.setText(jsonObject.getString("nobp"));
@@ -134,7 +129,7 @@ public class DetailCandidateActivity extends AppCompatActivity {
         }
     }
 
-    @Override
+   /* @Override
     public void onResume() {
         super.onResume();
         shimmer.startShimmerAnimation();
@@ -144,5 +139,5 @@ public class DetailCandidateActivity extends AppCompatActivity {
     protected void onPause() {
         shimmer.stopShimmerAnimation();
         super.onPause();
-    }
+    }*/
 }

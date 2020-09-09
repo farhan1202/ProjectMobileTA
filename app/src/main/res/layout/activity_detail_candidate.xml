@@ -1,18 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".home.DetailCandidateActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarDetailCandidate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white" />
+        android:background="#F6F7F9" />
+    <LinearLayout
+        android:padding="20dp"
+        android:background="#F6F7F9"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/candidateDetailImg"
+            android:layout_width="120dp"
+            android:layout_height="120dp" />
+        <LinearLayout
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/candidateDetailName"
+                android:textColor="@android:color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="5dp"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:text="Farhan " />
+            <TextView
+                android:id="@+id/candidateDetailBP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/black"
+                android:text="1701082012" />
+        </LinearLayout>
+    </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_margin="20dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="#F6F7F9"
+            android:padding="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jurusan"
+                android:textSize="25sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/candidateDetailJurusan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@android:color/black"
+                android:text="" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Background"
+                android:textSize="25sp"
+                android:layout_marginTop="8dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/candidateDetailKeterangan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@android:color/black"
+                android:text="" />
+        </LinearLayout>
 
-    <com.facebook.shimmer.ShimmerFrameLayout
+    </androidx.cardview.widget.CardView>
+
+    <!--<com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,16 +111,15 @@
 
             <include layout="@layout/data_placeholder_layout" />
         </LinearLayout>
-    </com.facebook.shimmer.ShimmerFrameLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>-->
 
-    <androidx.cardview.widget.CardView
+    <!--<androidx.cardview.widget.CardView
         android:id="@+id/cardDetailCandidate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbarDetailCandidate"
         android:layout_centerInParent="true"
         android:layout_margin="20dp"
-        android:visibility="gone"
         app:cardCornerRadius="10dp"
         app:cardElevation="0dp">
 
@@ -63,13 +143,7 @@
                 android:text="Nama"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/candidateDetailName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginTop="5dp"
-                android:text="" />
+
 
             <View
                 android:layout_width="match_parent"
@@ -85,13 +159,7 @@
                 android:text="No BP"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/candidateDetailBP"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginTop="5dp"
-                android:text="" />
+
 
             <View
                 android:layout_width="match_parent"
@@ -99,21 +167,9 @@
                 android:layout_marginTop="10dp"
                 android:background="@android:color/darker_gray" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginTop="10dp"
-                android:text="Jurusan"
-                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/candidateDetailJurusan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginTop="5dp"
-                android:text="" />
+
+
 
             <View
                 android:layout_width="match_parent"
@@ -136,5 +192,5 @@
                 android:layout_gravity="left"
                 android:layout_marginTop="5dp" />
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
-</RelativeLayout>
+    </androidx.cardview.widget.CardView>-->
+</LinearLayout>

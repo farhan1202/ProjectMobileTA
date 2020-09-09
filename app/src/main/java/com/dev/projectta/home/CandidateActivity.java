@@ -49,8 +49,8 @@ public class CandidateActivity extends AppCompatActivity {
     LoadingDialog loadingDialog;
     List<Candidate.DataBean> dataBeans;
     Context context;
-    @BindView(R.id.shimmer)
-    ShimmerFrameLayout shimmer;
+    /*@BindView(R.id.shimmer)
+    ShimmerFrameLayout shimmer;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +59,7 @@ public class CandidateActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         setSupportActionBar(toolbarCandidate);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Candidate");
+        getSupportActionBar().setTitle("");
 
         context = this;
         apiInterface = UtilsApi.getApiService();
@@ -80,8 +80,8 @@ public class CandidateActivity extends AppCompatActivity {
                         JSONObject jsonObject = new JSONObject(response.body().string());
                         if (jsonObject.getString("status").equals("200")) {
 
-                            shimmer.stopShimmerAnimation();
-                            shimmer.setVisibility(View.GONE);
+                            /*shimmer.stopShimmerAnimation();
+                            shimmer.setVisibility(View.GONE);*/
 
                             JSONArray jsonArray = jsonObject.getJSONArray("data");
                             loadingDialog.dismissLoadingDialog();
@@ -128,7 +128,7 @@ public class CandidateActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
+/*
     @Override
     public void onResume() {
         super.onResume();
@@ -139,5 +139,5 @@ public class CandidateActivity extends AppCompatActivity {
     protected void onPause() {
         shimmer.stopShimmerAnimation();
         super.onPause();
-    }
+    }*/
 }

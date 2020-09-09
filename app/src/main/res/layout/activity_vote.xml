@@ -1,33 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".home.VoteActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarVote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white" />
+        android:background="#F6F7F9" />
+    <TextView
+        android:text="Vote"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="23dp"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerVote"
         android:layout_below="@+id/toolbarVote"
         android:layout_width="match_parent"
-        android:layout_above="@id/layoutSubmit"
-        android:layout_height="match_parent"/>
-    <RelativeLayout
-        android:id="@+id/layoutSubmit"
-        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btnVote"
+        android:background="@drawable/button_rounded2"
+        android:text="Vote"
+        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
-        <Button
-            android:id="@+id/btnVote"
-            android:background="@drawable/button_rounded2"
-            android:text="Vote"
-            android:textColor="@android:color/white"
-            android:layout_centerHorizontal="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </RelativeLayout>
-</RelativeLayout>
+        android:layout_height="wrap_content"/>
+</LinearLayout>

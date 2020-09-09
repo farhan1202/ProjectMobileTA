@@ -1,15 +1,14 @@
 package com.dev.projectta.home;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.dev.projectta.R;
@@ -46,7 +45,8 @@ public class StatusFrag extends Fragment {
     PrefManager prefManager;
     LoadingDialog loadingDialog;
     @BindView(R.id.btnRefesh)
-    Button btnRefesh;
+    CardView btnRefesh;
+
 
     public StatusFrag() {
         // Required empty public constructor
@@ -66,15 +66,8 @@ public class StatusFrag extends Fragment {
         btnRefesh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                fetchDataStatus();
-                Intent intent = getActivity().getIntent();
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK
-                        | Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                getActivity().overridePendingTransition(0, 0);
-                getActivity().finish();
+                fetchDataStatus();
 
-                getActivity().overridePendingTransition(0, 0);
-                startActivity(intent);
             }
         });
         fetchDataStatus();

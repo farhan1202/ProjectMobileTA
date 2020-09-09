@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".home.MainActivity">
 
     <RelativeLayout
@@ -16,81 +17,73 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:elevation="5dp"
+                android:paddingTop="20dp"
+                android:background="@drawable/home_bg"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
+                android:layout_height="wrap_content">
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize">
-
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="20dp"
+                    android:layout_marginHorizontal="25dp"
+                    android:orientation="horizontal">
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/ic_home_black_24dp" />
+                        android:src="@drawable/iconapps"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"/>
+                    <LinearLayout
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:src="@drawable/logoapp1"
-                        android:layout_width="200dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_height="wrap_content"/>
+                            <TextView
+                                android:id="@+id/userName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Farhan Hafifi"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_gravity="right"
+                                android:id="@+id/userNoBP"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1701082012"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_marginLeft="10dp"
+                            android:id="@+id/profile_image"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/person1"
+                            />
+                    </LinearLayout>
+
                 </RelativeLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="20dp"
-                android:layout_marginHorizontal="25dp"
-                android:orientation="horizontal">
-                <de.hdodenhof.circleimageview.CircleImageView
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/profile_image"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
-                    android:src="@drawable/person"
-                    app:civ_border_width="5dp"
-                    app:civ_border_color="#ccc"/>
-                <LinearLayout
-                    android:layout_marginLeft="15dp"
-                    android:orientation="vertical"
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tablayout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/userName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
-                        android:text="-"
-                        android:textSize="18dp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:id="@+id/userNoBP"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="-"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                    android:layout_height="50dp"
+                    app:tabTextColor="#000"
+                    android:layout_marginBottom="20dp"
+                    app:tabSelectedTextColor="@color/colorPrimaryDark">
+                </com.google.android.material.tabs.TabLayout>
             </LinearLayout>
             <RelativeLayout
-                android:background="@drawable/rounded_home"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-                    <com.google.android.material.tabs.TabLayout
-                        android:id="@+id/tablayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        app:tabTextColor="#000"
-                        app:tabSelectedTextColor="@color/colorPrimaryDark">
-                    </com.google.android.material.tabs.TabLayout>
+
                     <androidx.viewpager.widget.ViewPager
                         android:id="@+id/vPager"
                         android:layout_width="match_parent"

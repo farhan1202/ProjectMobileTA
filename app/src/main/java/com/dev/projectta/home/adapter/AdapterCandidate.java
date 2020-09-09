@@ -45,7 +45,6 @@ public class AdapterCandidate extends RecyclerView.Adapter<AdapterCandidate.view
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, final int position) {
         holder.candidateName.setText(dataBeanList.get(position).getNama());
-        holder.noCandidate.setText((position + 1) + "");
         Glide
                 .with(context)
                 .load(UtilsApi.BASE_URL1 + dataBeanList.get(position).getProfile_image())
@@ -68,8 +67,6 @@ public class AdapterCandidate extends RecyclerView.Adapter<AdapterCandidate.view
     }
 
     public class viewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.noCandidate)
-        TextView noCandidate;
         @BindView(R.id.candidateImg)
         ImageView candidateImg;
         @BindView(R.id.candidateName)

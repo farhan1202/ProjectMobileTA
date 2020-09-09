@@ -28,18 +28,16 @@ import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
+
     private boolean doubleBack;
     private Toast backToast;
 
-    @BindView(R.id.profile_image)
-    CircleImageView profileImage;
     @BindView(R.id.userName)
     TextView userName;
     @BindView(R.id.userNoBP)
@@ -72,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         pagerOrderAdapter.addFrag(new StatusFrag(), "Status");
         pagerOrderAdapter.addFrag(new OthersFrag(), "Others");
         vPager.setAdapter(pagerOrderAdapter);
+
     }
 
     private void fetchDataProfile() {
@@ -92,14 +91,14 @@ public class MainActivity extends AppCompatActivity {
                             AlertDialog.Builder builder = new AlertDialog.Builder(context);
                             builder.setMessage("Token Expired")
                                     .setPositiveButton("Oke", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    Intent intent = new Intent(context  , LoginActivity.class);
-                                    startActivity(intent);
-                                    finish();
-                                    prefManager.removeSession();
-                                }
-                            });
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            Intent intent = new Intent(context, LoginActivity.class);
+                                            startActivity(intent);
+                                            finish();
+                                            prefManager.removeSession();
+                                        }
+                                    });
                             AlertDialog alertDialog = builder.create();
                             alertDialog.show();
 

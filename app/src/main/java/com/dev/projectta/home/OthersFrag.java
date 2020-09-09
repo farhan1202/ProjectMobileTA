@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.dev.projectta.R;
@@ -23,13 +23,11 @@ import butterknife.ButterKnife;
  */
 public class OthersFrag extends Fragment {
     PrefManager prefManager;
-
-    @BindView(R.id.information)
-    TextView information;
     @BindView(R.id.aboutUs)
-    TextView aboutUs;
+    CardView aboutUs;
     @BindView(R.id.logOut)
-    TextView logOut;
+    CardView logOut;
+
 
     public OthersFrag() {
         // Required empty public constructor

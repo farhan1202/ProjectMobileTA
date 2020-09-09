@@ -1,34 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".home.CandidateActivity">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarCandidate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white" />
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:layout_below="@id/toolbarCandidate"
+        android:background="#F6F7F9" />
+
+    <!--<com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbarCandidate"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:orientation="vertical"
-        app:duration="800"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        app:duration="800">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <include layout="@layout/data_placeholder_layout" />
         </LinearLayout>
-    </com.facebook.shimmer.ShimmerFrameLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>-->
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Candidate"
+        android:textColor="@android:color/black"
+        android:textSize="23dp"
+        android:textStyle="bold" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerCandidate"
-        android:layout_below="@+id/toolbarCandidate"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-</RelativeLayout>
+        android:layout_height="match_parent"  />
+</LinearLayout>
