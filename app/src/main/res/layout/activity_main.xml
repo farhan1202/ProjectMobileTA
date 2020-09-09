@@ -70,10 +70,16 @@
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tablayout"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    app:tabBackground="@drawable/tab_layout_selector"
                     app:tabTextColor="#000"
                     android:layout_marginBottom="20dp"
-                    app:tabSelectedTextColor="@color/colorPrimaryDark">
+                    android:background="@drawable/tab_layout_background"
+                    app:tabIndicatorHeight="0dp"
+                    app:tabRippleColor="@null"
+                    app:tabTextAppearance="@style/TabTextAppearance"
+                    app:tabSelectedTextColor="@android:color/white">
                 </com.google.android.material.tabs.TabLayout>
             </LinearLayout>
             <RelativeLayout
